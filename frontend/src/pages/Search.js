@@ -225,16 +225,10 @@ export default class Search extends Component {
             .then((res) => {
                 console.log(res);
                 if(res.data.success) {
-                    for(var i =0;i<this.state.universities.length;i++) {
-                        console.log("insdie for ", this.state.universities[i].id, id);
-                        if(this.state.universities[i].id==id) {
-                            const newList = this.state.universities.splice(i, 1);
-                            console.log(newList);
-                            this.setState({
-                                universities: this.state.universities.filter(university => university.id != id)
-                            })
-                        }
-                    }
+                    this.setState({
+                        universities: this.state.universities.filter(university => university.id != id)
+                    })  
+                    
                 }
             })
     }
@@ -275,7 +269,7 @@ export default class Search extends Component {
 
     handleFilterUniversityChange(e) {
 
-        if(this.state.filters.domainend!='' || this.state.filters.country!='' || e.target.value!='') {
+        if(this.state.filters.domainend!=='' || this.state.filters.country!=='' || e.target.value!=='') {
             this.setState({
                 is_filter: 1,
                 hasMore: true
@@ -291,7 +285,7 @@ export default class Search extends Component {
     
     handleDomainEndFilter(e) {
 
-        if(this.state.filters.university!='' || this.state.filters.country!='' || e.target.value!='') {
+        if(this.state.filters.university!=='' || this.state.filters.country!=='' || e.target.value!=='') {
             this.setState({
                 is_filter: 1,
                 hasMore: true
@@ -305,7 +299,7 @@ export default class Search extends Component {
 
     handleCountryChange = country => {
 
-        if(this.state.filters.domainend!='' || this.state.filters.university!='' || country!='') {
+        if(this.state.filters.domainend!=='' || this.state.filters.university!=='' || country!=='') {
             this.setState({
                 is_filter: 1,
                 hasMore: true
@@ -320,12 +314,20 @@ export default class Search extends Component {
     render() {
         return (
             <div>
+                <div className="search-input mb-5">
+                    <Row className="justify-content-md-center">
+                        <Col md="8">
+                            <Form.Control type="text" placeholder="Search University" 
+                                value = {this.state.university}
+                                onChange= {this.handleFilterUniversityChange}
+                            />
+                        </Col>
+                    </Row>
+                    
+                </div>
                 <Row>
                     <Col md="4">
                         <FilterCard 
-                            handleFilterUniversityChange = {this.handleFilterUniversityChange}
-                            university = {this.state.filters.university}
-
                             handleCountryChange= {this.handleCountryChange}
                             country= {this.state.filters.country}
 
