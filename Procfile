@@ -1,1 +1,1 @@
-web: gunicorn app:backend/wsgi
+web: gunicorn ./backend/wsgi:Create_Your_Ad
