@@ -41,17 +41,6 @@ export default class UniversiltyFilterCard extends Component {
                     <div>
                         <Form.Group as={Row} className="align-items-center" controlId="formPlaintextEmail">
                             <Form.Label column sm="5">
-                                University
-                            </Form.Label>
-                            <Col sm="7">
-                                <Form.Control type="text" placeholder="Caltech" 
-                                    value = {this.props.university}
-                                    onChange= {this.props.handleFilterUniversityChange}
-                                />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} className="align-items-center" controlId="formPlaintextEmail">
-                            <Form.Label column sm="5">
                                 Country Code
                             </Form.Label>
                             <Col sm="7">

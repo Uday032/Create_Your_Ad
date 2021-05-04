@@ -13,3 +13,12 @@ section {
 .atag_black {
   color: black !important;
 }
+
+.search-input input {
+  font-size: 29px;
+  text-align: left;
+  width: 100% !important;
+  box-shadow: 2px 2px 4px #00000029;
+  border: 0.25px solid #000;
+  padding: 20px 25px;
+}
