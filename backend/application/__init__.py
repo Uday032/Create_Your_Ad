@@ -8,7 +8,7 @@ ma = Marshmallow()
 
 def create_app():
     """Construct the core application."""
-    app = Flask(__name__, instance_relative_config=False)
+    app = Flask(__name__, static_folder='../../frontend/build', static_url_path='/mainpage',instance_relative_config=False)
     app.config.from_object("config.Config")
     
     db.init_app(app)

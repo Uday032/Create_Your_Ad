@@ -14,6 +14,10 @@ import requests
 from country_list import countries_for_language
 
 
+@app.route('/mainpage')
+def mainpage():
+    return app.send_static_file('index.html')
+
 @app.route("/", methods=["GET"])
 def University_records():
     """Get All University Data in chunks"""
